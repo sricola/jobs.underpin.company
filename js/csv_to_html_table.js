@@ -47,8 +47,6 @@ CsvToHtmlTable = {
                     }
                 }
                 $table.append($tableBody);
-				
-				$("#searchBar").html($(".dataTables_filter"));
 								
                 $table.DataTable( {
 					paging: false, 
