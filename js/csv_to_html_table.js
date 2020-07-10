@@ -3,7 +3,7 @@ var CsvToHtmlTable = CsvToHtmlTable || {};
 CsvToHtmlTable = {
     init: function (options) {
         options = options || {};
-        var csv_path = options.csv_path || "";
+        var csv_path = 'https://docs.google.com/spreadsheets/d/1udba3EQtIfXOBuaLpCjQwokYyhP-MhO1f3risRaGUuY/gviz/tq?tqx=out:csv&tq=select%20A,B,C,D,E,F,G,H,I,J&gid=0';
         var el = "table-container";
         var custom_formatting = options.custom_formatting || [];
         var customTemplates = {};
@@ -14,7 +14,7 @@ CsvToHtmlTable = {
             customTemplates[colIdx] = func;
         });
 
-        var $table = $("<table class='display responsive nowrap dataTable no-footer dtr-inline collapsed' width='100%' id='" + el + "-table'></table>");
+        var $table = $("<table class='display responsive nowrap' width='100%' id='" + el + "-table'></table>");
         var $containerElement = $("#" + el);
         $containerElement.empty().append($table);
 
@@ -47,7 +47,9 @@ CsvToHtmlTable = {
                     }
                 }
                 $table.append($tableBody);
-
+				
+				$("#searchBar").html($(".dataTables_filter"));
+								
                 $table.DataTable( {
 					paging: false, 
     				responsive: true,

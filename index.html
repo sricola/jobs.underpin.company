@@ -13,9 +13,24 @@
     <link href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css" rel="stylesheet">
 	<link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
 	<style>
-		.dataTables_filter {
-		   : left !important;
-		}	
+		body {
+		  padding-top: 0px;
+		}
+		.navbar.navbar-inverse {
+		  border: none;
+		}
+		.navbar .navbar-brand {
+		  padding-top: 0px;
+		}
+		.navbar .navbar-brand img {
+		  height: 70px;
+		}
+		.center {
+		  margin: auto;
+		  width: 50%;
+		  border: 3px solid green;
+		  padding: 10px;
+		}
 	</style>
   </head>
 
@@ -30,7 +45,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<div id='table-container'>
 	</div>
 				
@@ -56,6 +71,7 @@
 
 
     <script type="text/javascript">
+		
 	    function format_link(link){
 	      if (link)
 	        return "<a href='" + link + "' target='_blank'>" + link + "</a>";
@@ -63,7 +79,6 @@
 	        return "";
 	    }
       CsvToHtmlTable.init({
-        csv_path: 'https://docs.google.com/spreadsheets/d/1udba3EQtIfXOBuaLpCjQwokYyhP-MhO1f3risRaGUuY/gviz/tq?tqx=out:csv&tq=select%20A,B,C,D,E,F,G,H,I,J&gid=0',
         custom_formatting: [[9,format_link],[10,format_link]]
       });
     </script>
