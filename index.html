@@ -8,23 +8,32 @@
     <meta name="author" content="Jill Jubinski">
     <meta content="List of jobs in tech, curated by underpin company." />
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+    <link href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
 	<style>
-		.input-sm {
-		    height: 60px;
-		    padding: 5px 10px;
-		    font-size: 18px;
-		    line-height: 1;
-		    border-radius: 3px;
-		}
+		.dataTables_filter {
+		   : left !important;
+		}	
 	</style>
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div id='table-container'></div>
-    </div>
+	  
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+					<a class="navbar-brand" href="#"><img src="images/underpin_logo.webp" /></a>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<div id='table-container'>
+	</div>
+				
 
     <footer class='footer'>
       <div class='container-fluid'>
@@ -33,24 +42,29 @@
       </div>
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.csv.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>	
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="js/csv_to_html_table.js"></script>
+	
 
 
     <script type="text/javascript">
+	    function format_link(link){
+	      if (link)
+	        return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+	      else
+	        return "";
+	    }
       CsvToHtmlTable.init({
-        csv_path: 'https://docs.google.com/spreadsheets/d/1udba3EQtIfXOBuaLpCjQwokYyhP-MhO1f3risRaGUuY/gviz/tq?tqx=out:csv&tq=select%20A,B,C,D,E,F,G,H&gid=0',
-        element: 'table-container', 
-        csv_options: {separator: ',', delimiter: '"'},
-        datatables_options: {"paging": false},
-        custom_formatting: []
+        csv_path: 'https://docs.google.com/spreadsheets/d/1udba3EQtIfXOBuaLpCjQwokYyhP-MhO1f3risRaGUuY/gviz/tq?tqx=out:csv&tq=select%20A,B,C,D,E,F,G,H,I,J&gid=0',
+        custom_formatting: [[9,format_link],[10,format_link]]
       });
     </script>
   </body>
