@@ -37,6 +37,7 @@
 		  border: 1px solid green;
 		  padding: 10px;
 		}
+		.dataTables_filter, .dataTables_info { display: none; }
 	</style>
   </head>
 
@@ -52,6 +53,10 @@
 		</div>
 	</div>
 	
+	<br />
+	<div class="form-group">
+		<input type="text" class="search form-control" id="search" autocomplete="off" placeholder="Search - Job Title, Location, Company etc" />
+	</div>
 	<div id='table-container'>
 	</div>
 				
@@ -65,28 +70,20 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>	
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
 
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="js/csv_to_html_table.js"></script>
+
+    <script type="text/javascript" src="js/table.js"></script>
 	
 
 
     <script type="text/javascript">
-		
-	    function format_link(link){
-	      if (link)
-	        return "<a href='" + link + "' target='_blank'>" + link + "</a>";
-	      else
-	        return "";
-	    }
-      CsvToHtmlTable.init({
-        custom_formatting: [[9,format_link],[10,format_link]]
-      });
+      Table.init();
     </script>
   </body>
 </html>
