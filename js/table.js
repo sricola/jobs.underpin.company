@@ -29,14 +29,14 @@ Table = {
                 for (var row = 1; row < csvData.length; row++) {
                     var tableBodyRow = $("<tr></tr>");
                     for (var col = 0; col < csvData[row].length; col++) {
-                        var $tableBodyRowTd = $("<td></td>");
+                        var tableBodyRowTd = $("<td></td>");
 
                         if (col == 8 || col == 9) {
-                            $tableBodyRowTd.html("<a href='" + csvData[row][col] + "' target='_blank'>" + csvData[row][col] + "</a>");
+                            tableBodyRowTd.html("<a href='" + csvData[row][col] + "' target='_blank'>" + csvData[row][col] + "</a>");
                         } else {
-                            $tableBodyRowTd.text(csvData[row][col]);
+                            tableBodyRowTd.text(csvData[row][col]);
                         }
-                        tableBodyRow.append($tableBodyRowTd);
+                        tableBodyRow.append(tableBodyRowTd);
                         tableBody.append(tableBodyRow);
                     }
                 }
