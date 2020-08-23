@@ -26,7 +26,8 @@ Table = {
                 table.append(tableHead);
                 var tableBody = $("<tbody></tbody>");
 
-                for (var row = 1; row < csvData.length; row++) {
+				var dataLength = csvData.length;
+                for (var row = 1; row < dataLength; row++) {
                     var tableBodyRow = $("<tr></tr>");
                     for (var col = 0; col < csvData[row].length; col++) {
                         var tableBodyRowTd = $("<td></td>");
